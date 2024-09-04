@@ -4,10 +4,10 @@ import buttonClasses from '../../styles/buttons.module.css';
 const Header = () => {
   return (
     <header className={classes.header}>
-      <h2>پول افزار</h2>
+      <h2>پول‌افزار</h2>
       <div>
         <a href="#" className={`${buttonClasses.button} ${buttonClasses.secondary}`}>ورود</a>
-        <a href="#" className={`${buttonClasses.button} ${buttonClasses.primary}`}>ثبت نام</a>
+        <a href="#" className={`${buttonClasses.button} ${buttonClasses.primary}`}>ثبت‌نام</a>
       </div>
     </header>
   );

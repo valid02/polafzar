@@ -10,7 +10,7 @@ const WelcomeSection = () => {
         <p>پول های خود را به راحتی مدیریت کنید</p>
         <div>
           <input type='email' placeholder="ایمیل خود را وارد کنید" />
-          <button className={`${buttonClasses.button} ${buttonClasses.primary}`}>ثبت نام</button>
+          <button className={`${buttonClasses.button} ${buttonClasses.primary}`}>ثبت‌نام</button>
         </div>
       </div>
       <img src={banner} alt="پول افزار" />
