@@ -1,3 +1,4 @@
+import FactsSection from "./components/layout/FactsSection";
 import Header from "./components/layout/Header";
 import WelcomeSection from "./components/layout/WelcomeSection";
 
@@ -6,6 +7,7 @@ const App = () => {
     <>
       <Header />
       <WelcomeSection />
+      <FactsSection />
     </>
   );
 }

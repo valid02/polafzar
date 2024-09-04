@@ -1,0 +1,29 @@
+.factsContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+  background: linear-gradient(90deg, rgb(91, 51, 170) 0%, rgb(81, 47, 158) 100%);
+}
+
+.factItem {
+  text-align: center;
+  color: var(--color-white);
+  padding: 1rem;
+  flex-basis: 20%;
+}
+
+.factDescription {
+  font-size: 2rem;
+}
+
+/* @media (max-width: 768px) {
+  .factsContainer {
+    flex-direction: column;
+  }
+
+  .factItem {
+    margin-bottom: 1.5rem;
+    flex-basis: 100%;
+  }
+} */
