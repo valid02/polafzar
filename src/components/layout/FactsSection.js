@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './FactsSection.module.css'; // استایل مرتبط با این بخش
+import styles from './FactsSection.module.css';
 
 const FactsSection = () => {
   const facts = [
