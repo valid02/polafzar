@@ -1,0 +1,42 @@
+.section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: radial-gradient(circle at 50% 80%,#f5f8ff,#c6cafe);
+}
+
+.section h1 {
+  margin-bottom: 1rem;
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.section p {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 3rem;
+}
+
+.section img {
+  width: 50rem;
+  height: 50rem;
+}
+
+.section input {
+  padding: 0.8rem 1rem;
+  width: 26rem;
+  height: 5rem;
+  font-size: 1.6rem;
+  font-family: inherit;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin-left: 1rem;
+}
+
+.section button {
+  height: 5rem;
+  width: 12rem;
+}
