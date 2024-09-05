@@ -1,0 +1,29 @@
+.featuresSection {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+  margin: 10rem 0;
+}
+
+.feature {
+  text-align: center;
+  flex: 1;
+  margin: 0 1rem;
+}
+
+.featureIcon {
+  width: 32rem;
+  height: 32rem;
+  border-radius: 25px;
+  margin-bottom: 1rem;
+}
+
+.featuresSection h3 {
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.featuresSection p {
+  font-size: 1.6rem;
+  color: var(--color-text-secondary);
+}
