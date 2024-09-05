@@ -45,7 +45,7 @@ body {
   padding: 0;
   font-family: var(--font-vazir-fa-num);
   background-color: var(--color-white);
-  color: var(--color-text);
+  color: var(--color-text-primary);
 }
 
 html[lang = "en"] body {
