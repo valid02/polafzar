@@ -1,17 +1,21 @@
-import FactsSection from "./components/layout/FactsSection";
-import FeaturesSection from "./components/layout/FeaturesSection";
-import Header from "./components/layout/Header";
-import WelcomeSection from "./components/layout/WelcomeSection";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomePage from "./pages/Home";
+import SignupPage from "./pages/Singup";
+import LoginPage from "./pages/Login";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: "signup", element: <SignupPage /> },
+      { path: "login", element: <LoginPage /> },
+    ],
+  },
+]);
 
 const App = () => {
-  return (
-    <>
-      <Header />
-      <WelcomeSection />
-      <FactsSection />
-      <FeaturesSection />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
