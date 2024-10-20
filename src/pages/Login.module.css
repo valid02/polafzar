@@ -1,0 +1,96 @@
+.main-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(circle at 50% 80%,#f5f8ff,#c6cafe);
+}
+
+.img-container {
+  align-self: center;
+}
+
+.img-container img {
+  width: 60rem;
+  height: 60rem;
+}
+
+.login-container {
+  padding-top: 10rem;
+  padding-right: 4rem;
+}
+
+.login-container h1 {
+  font-size: 3rem;
+  margin-bottom: 4rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.input-group label {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.input-group input {
+  text-align: left;
+  padding: 1rem;
+  width: 35rem;
+  font-size: 1.6rem;
+  border-radius: 5px;
+  border: 1px solid var(--color-dark);
+  background-color: transparent;
+  color: var(--color-text-primary);
+  outline: none;
+}
+
+.login-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  width: 35rem;
+  margin-top: 2rem;
+}
+
+.login-container button svg {
+  margin-left: 1rem;
+}
+
+.signup-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.signup-container p {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.main-container a {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #8c71d2;
+  text-decoration: none;
+}
+
+.main-container a:hover {
+  color: #534280;
+}
+
+.forgot-password-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forgot-password-container a {
+  font-size: 1.3rem;
+}
