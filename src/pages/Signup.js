@@ -4,15 +4,15 @@ import img from '../assets/images/money-management-financial.png';
 import { Link } from 'react-router-dom';
 import Checkbox from '../components/UI/Checkbox';
 
-const LoginPage = () => {
+const SignupPage = () => {
   return (
     <>
       <div className={classes['main-container']}>
         <div className={classes['form-container']}>
-          <h1>ورود به حساب کاربری</h1>
+          <h1>ثبت‌نام در پول‌افزار</h1>
           <div className={classes['auth-container']}>
-            <p>حساب کاربری ندارید؟</p>
-            <Link to="/signup">ثبت‌نام</Link>
+            <p>قبلا ثبت‌نام کرده‌اید؟</p>
+            <Link to="/login">ورود</Link>
           </div>
           <form>
             <div className={classes['input-group']}>
@@ -20,20 +20,17 @@ const LoginPage = () => {
               <input type="email" id="email" name="email" />
             </div>
             <div className={classes['input-group']}>
-              <div className={classes['forgot-password-container']}>
-                <label htmlFor="password">رمز عبور</label>
-                <Link to="/forgot-password">رمز عبور را فراموش کرده‌اید؟</Link>
-              </div>
+              <label htmlFor="password">ایجاد رمز عبور</label>
               <input type="password" id="password" name="password" />
             </div>
             <div className={classes['input-group']}>
               <label htmlFor="remember-me" className={classes.checkbox}>
                 <Checkbox id="remember-me" size="25px" />
-                من را به خاطر بسپار
+                با ثبت نام در پول‌افزار، <Link to="/terms">قوانین و مقررات</Link> آن را می‌پذیرم.
               </label>
             </div>
             <button className={`${buttonClasses.button} ${buttonClasses.primary}`} type="submit">
-              ورود
+              ثبت‌نام
             </button>
           </form>
           <button className={`${buttonClasses.button} ${buttonClasses.secondary}`} type="button">
@@ -55,7 +52,7 @@ const LoginPage = () => {
                 fill="#EA4335"
               ></path>
             </svg>
-            ورود سریع با گوگل
+            ثبت‌نام سریع با گوگل
           </button>
         </div>
         <div className={classes['img-container']}>
@@ -66,4 +63,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignupPage;
