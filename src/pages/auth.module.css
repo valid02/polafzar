@@ -55,10 +55,9 @@
   color: var(--color-text-tertiary);
   display: flex;
   gap: 1rem;
-  cursor: pointer;
 }
 
-.checkbox:hover {
+.checkbox, .checkbox * {
   cursor: pointer;
 }
 
