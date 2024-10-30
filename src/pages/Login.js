@@ -1,11 +1,19 @@
 import classes from './auth.module.css';
 import buttonClasses from '../styles/buttons.module.css';
 import img from '../assets/images/money-management-financial.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Checkbox from '../components/UI/Checkbox';
 import { FcGoogle } from 'react-icons/fc';
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+
+    navigate('/dashboard');
+  };
+
   return (
     <>
       <div className={classes['main-container']}>
@@ -15,7 +23,7 @@ const LoginPage = () => {
             <p>حساب کاربری ندارید؟</p>
             <Link to="/signup">ثبت‌نام</Link>
           </div>
-          <form>
+          <form onSubmit={handleLogin}>
             <div className={classes['input-group']}>
               <label htmlFor="email">ایمیل</label>
               <input type="email" id="email" name="email" />
