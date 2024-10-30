@@ -3,7 +3,7 @@ import buttonClasses from '../styles/buttons.module.css';
 import img from '../assets/images/money-management-financial.png';
 import { Link } from 'react-router-dom';
 import Checkbox from '../components/UI/Checkbox';
-import GoogleLogo from '../components/UI/GoogleLogo';
+import { FcGoogle } from 'react-icons/fc';
 
 const LoginPage = () => {
   return (
@@ -38,7 +38,7 @@ const LoginPage = () => {
             </button>
           </form>
           <button className={`${buttonClasses.button} ${buttonClasses.secondary}`} type="button">
-            <GoogleLogo />
+            <FcGoogle size="25px" />
             ورود سریع با گوگل
           </button>
         </div>
