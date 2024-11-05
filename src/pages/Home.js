@@ -1,12 +1,12 @@
 import FactsSection from "../components/layout/FactsSection";
 import FeaturesSection from "../components/layout/FeaturesSection";
-import Header from "../components/layout/Header";
+import MainHeader from "../components/layout/Header/MainHeader";
 import WelcomeSection from "../components/layout/WelcomeSection";
 
 const HomePage = () => {
   return (
     <>
-      <Header />
+      <MainHeader />
       <WelcomeSection />
       <FactsSection />
       <FeaturesSection />

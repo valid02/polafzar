@@ -1,8 +1,8 @@
-import classes from './Header.module.css';
-import buttonClasses from '../../styles/buttons.module.css';
+import classes from './MainHeader.module.css';
+import buttonClasses from '../../../styles/buttons.module.css';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const MainHeader = () => {
   return (
     <header className={classes.header}>
       <h2>پول‌افزار</h2>
@@ -14,4 +14,4 @@ const Header = () => {
   );
 }
  
-export default Header;
+export default MainHeader;
