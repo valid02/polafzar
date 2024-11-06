@@ -4,6 +4,11 @@
   align-items: center;
   padding: 1.5rem 2rem;
   background-color: #2e1c41;
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .site-name-link {

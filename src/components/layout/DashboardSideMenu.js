@@ -6,14 +6,15 @@ import { GiTakeMyMoney } from "react-icons/gi";
 import { MdOutlineLogout } from "react-icons/md";
 import { TbLayoutDashboardFilled } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import classes from "./DashboardSideMenu.module.css";
 
 const DashboardSideMenu = () => {
   return (
-    <aside>
-      <nav>
+    <aside className={classes.sidebar}>
+      <nav className={classes.nav}>
         <ul>
           <li>
-            <Link to="/dashboard">
+            <Link to="/dashboard" className={classes.active}>
               <TbLayoutDashboardFilled />
               <span>داشبورد</span>
             </Link>
@@ -61,7 +62,7 @@ const DashboardSideMenu = () => {
             </Link>
           </li>
           <li>
-            <Link to="/dashboard">
+            <Link to="/dashboard" className={classes.logout}>
               <MdOutlineLogout />
               <span>خروج</span>
             </Link>
