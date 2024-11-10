@@ -5,7 +5,7 @@ import { FaMoneyBillTransfer, FaMoneyCheckDollar } from "react-icons/fa6";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { MdOutlineLogout } from "react-icons/md";
 import { TbLayoutDashboardFilled } from "react-icons/tb";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import classes from "./DashboardSideMenu.module.css";
 
 const DashboardSideMenu = () => {
@@ -14,58 +14,58 @@ const DashboardSideMenu = () => {
       <nav className={classes.nav}>
         <ul>
           <li>
-            <Link to="/dashboard" className={classes.active}>
+            <NavLink to="/dashboard" className={({ isActive }) => (isActive ? classes.active : undefined)} end>
               <TbLayoutDashboardFilled />
               <span>داشبورد</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/dashboard">
+            <NavLink to="/dashboard/expenses" className={({ isActive }) => (isActive ? classes.active : undefined)}>
               <FaMoneyCheckDollar />
               <span>هزینه‌ها</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/dashboard">
+            <NavLink to="/dashboard/budgeting" className={({ isActive }) => (isActive ? classes.active : undefined)}>
               <FaChartPie />
               <span>بودجه‌بندی</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/dashboard">
+            <NavLink to="/dashboard/debts" className={({ isActive }) => (isActive ? classes.active : undefined)}>
               <FaMoneyBillTransfer />
               <span>بدهی‌ها</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/dashboard">
+            <NavLink to="/dashboard/receivables" className={({ isActive }) => (isActive ? classes.active : undefined)}>
               <GiTakeMyMoney />
               <span>مطالبات</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/dashboard">
+            <NavLink to="/dashboard/accounts" className={({ isActive }) => (isActive ? classes.active : undefined)}>
               <BsCreditCard2FrontFill />
               <span>حساب‌ها</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/dashboard">
+            <NavLink to="/dashboard/charts" className={({ isActive }) => (isActive ? classes.active : undefined)}>
               <FaChartBar />
               <span>نمودار‌ها و گزارشات</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/dashboard">
+            <NavLink to="/dashboard/profile" className={({ isActive }) => (isActive ? classes.active : undefined)}>
               <BiSolidUserRectangle />
               <span>پروفایل</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/dashboard" className={classes.logout}>
+            <button type="button" className={classes.logout}>
               <MdOutlineLogout />
-              <span>خروج</span>
-            </Link>
+              <span>خروج</span> 
+            </button>
           </li>
         </ul>
       </nav>
