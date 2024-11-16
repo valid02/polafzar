@@ -5,6 +5,7 @@ import LoginPage from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import DashboardLayout from './pages/DashboardLayout';
 import Expenses from './pages/Expenses';
+import Accounts from './pages/Accounts';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <Dashboard /> },
           { path: 'expenses', element: <Expenses /> },
+          { path: 'accounts', element: <Accounts /> },
         ],
        },
     ],
