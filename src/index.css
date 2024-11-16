@@ -26,6 +26,15 @@
   --color-white: #fff;
   --color-dark: #000;
   --color-bg-primary: #f4faff;
+  --color-bg-gradient: radial-gradient(circle at 50% 80%,#f5f8ff,#c6cafe);   
+  --color-bg-dashboard-header: #2e1c41;
+  --color-dashboard-menu-active: #754ec6;
+  --color-bg-dashboard-menu-active: #e8ecf0;
+  --color-bg-dashboard-menu-hover: #d0d8e0;
+  --color-bg-facts: #5330a0;
+  --color-auth-link: #8c71d2;
+  --color-auth-link-hover: #534280;
+
 
   /* fonts */
   --font-vazir-fa-num: "VazirFD";

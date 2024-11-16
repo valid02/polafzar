@@ -3,7 +3,7 @@
   justify-content: space-around;
   align-items: center;
   padding: 2rem;
-  background: linear-gradient(90deg, rgb(91, 51, 170) 0%, rgb(81, 47, 158) 100%);
+  background-color: var(--color-bg-facts);
 }
 
 .factItem {

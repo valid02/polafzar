@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  background-color: #2e1c41;
+  background-color: var(--color-bg-dashboard-header);
   position: fixed;
   z-index: 200;
   top: 0;

@@ -61,7 +61,7 @@
 
 .nav a:hover,
 .nav a:active {
-  background-color: #d0d8e0;
+  background-color: var(--color-bg-dashboard-menu-hover);
   color: var(--color-text-primary);
 }
 
@@ -72,8 +72,8 @@
 }
 
 .nav a.active {
-  background-color: #e8ecf0;
-  color: #754ec6;
+  background-color: var(--color-bg-dashboard-menu-active);
+  color: var(--color-dashboard-menu-active);
 }
 
 .logout {
