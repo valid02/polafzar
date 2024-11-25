@@ -1,0 +1,36 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  direction: rtl;
+  width: 20rem;
+  height: 10rem;
+  background-color: var(--color-bg-account-card);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.number {
+  font-size: 1.2rem;
+  letter-spacing: 0.2rem;
+}
+
+.balance {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+}
