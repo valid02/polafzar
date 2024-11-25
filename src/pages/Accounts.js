@@ -1,5 +1,6 @@
 import { CiCreditCard2 } from 'react-icons/ci';
 import classes from './Accounts.module.css';
+import AccountSlider from '../components/AccountSlider';
 
 const Accounts = () => {
   return (
@@ -11,6 +12,8 @@ const Accounts = () => {
         </span>
         <h2>افزودن حساب</h2>
       </div>
+
+      <AccountSlider />
     </div>
   );
 };
