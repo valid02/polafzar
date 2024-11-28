@@ -9,6 +9,7 @@ const AddAccountForm = ({ onClose }) => {
   const [balance, setBalance] = useState('');
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const [currency, setCurrency] = useState('IRT');
 
   const handleChangeBalance = (e) => {
     const formattedValue = formatNumber(e.target.value);
@@ -23,6 +24,10 @@ const AddAccountForm = ({ onClose }) => {
     setNumber(e.target.value);
   };
 
+  const handleChangeCurrency = (e) => {
+    setCurrency(e.target.value);
+  };
+
   return ReactDOM.createPortal(
     <div className={classes.backdrop} onClick={onClose}>
       <section className={classes['form-section']} onClick={e => e.stopPropagation()}>
@@ -34,7 +39,7 @@ const AddAccountForm = ({ onClose }) => {
         </header>
 
         <div className={classes['account-card']}>
-          <AccountCard name={name || "******"} number={number || "-------------"} balance={balance || "000,000"} />
+          <AccountCard name={name || "******"} number={number || "-------------"} balance={balance || "000,000"} currency={currency} />
         </div>
 
         <form>
@@ -50,6 +55,12 @@ const AddAccountForm = ({ onClose }) => {
             <div className={classes['input-group']}>
               <label htmlFor="balance">موجودی</label>
               <input type="text" id="balance" name="balance" onChange={handleChangeBalance} value={balance} />
+            </div>
+            <div className={classes['input-group']}>
+              <select name="currency" onChange={handleChangeCurrency}>
+                <option value="IRT">تومان</option>
+                <option value="USD">دلار</option>
+              </select>
             </div>
             <button className={`${classes.button} ${classes.primary}`} type="submit">
               افزودن
