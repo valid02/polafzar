@@ -2,42 +2,60 @@ import { IoIosClose } from 'react-icons/io';
 import classes from './AddAccountForm.module.css';
 import ReactDOM from 'react-dom';
 import AccountCard from './AccountCard';
-import { useState } from 'react';
+import { useReducer } from 'react';
 import { formatNumber } from '../utils/format';
 
-const AddAccountForm = (props) => {
-  const [balance, setBalance] = useState('');
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
-  const [currency, setCurrency] = useState('IRT');
+const initialState = {
+  name: '',
+  number: '',
+  balance: '',
+  currency: 'IRT',
+};
 
-  const handleChangeBalance = (e) => {
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'SET_NAME':
+      return { ...state, name: action.payload };
+    case 'SET_NUMBER':
+      return { ...state, number: action.payload };
+    case 'SET_BALANCE':
+      return { ...state, balance: action.payload };
+    case 'SET_CURRENCY':
+      return { ...state, currency: action.payload, balance: '' }; // Reset balance when currency changes
+    default:
+      return state;
+  }
+};
+
+const AddAccountForm = props => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const handleChangeBalance = e => {
     let formattedValue = formatNumber(e.target.value);
 
-    if (currency === 'IRT') {
+    if (state.currency === 'IRT') {
       formattedValue = formattedValue.split('.')[0];
     }
 
-    setBalance(formattedValue);
+    dispatch({ type: 'SET_BALANCE', payload: formattedValue });
   };
 
-  const handleChangeName = (e) => {
-    setName(e.target.value);
+  const handleChangeName = e => {
+    dispatch({ type: 'SET_NAME', payload: e.target.value });
   };
 
-  const handleChangeNumber = (e) => {
-    setNumber(e.target.value);
+  const handleChangeNumber = e => {
+    dispatch({ type: 'SET_NUMBER', payload: e.target.value });
   };
 
-  const handleChangeCurrency = (e) => {
-    setCurrency(e.target.value);
-    setBalance('');
+  const handleChangeCurrency = e => {
+    dispatch({ type: 'SET_CURRENCY', payload: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
-    const newAccount = { name, number, balance, currency, key: Math.random().toString() };
+    const newAccount = { ...state, key: Math.random().toString() };
     props.onAddAccount(newAccount);
 
     props.onClose();
@@ -54,22 +72,27 @@ const AddAccountForm = (props) => {
         </header>
 
         <div className={classes['account-card']}>
-          <AccountCard name={name || "******"} number={number || "-------------"} balance={balance || "000,000"} currency={currency} />
+          <AccountCard
+            name={state.name || '******'}
+            number={state.number || '-------------'}
+            balance={state.balance || '000,000'}
+            currency={state.currency}
+          />
         </div>
 
         <form onSubmit={handleSubmit}>
           <div className={classes.form}>
             <div className={classes['input-group']}>
               <label htmlFor="name">نام حساب</label>
-              <input type="text" id="name" name="name" onChange={handleChangeName} value={name} />
+              <input type="text" id="name" name="name" onChange={handleChangeName} value={state.name} />
             </div>
             <div className={classes['input-group']}>
               <label htmlFor="number">شماره حساب</label>
-              <input type="text" id="number" name="number" onChange={handleChangeNumber} value={number} />
+              <input type="text" id="number" name="number" onChange={handleChangeNumber} value={state.number} />
             </div>
             <div className={classes['input-group']}>
               <label htmlFor="balance">موجودی</label>
-              <input type="text" id="balance" name="balance" onChange={handleChangeBalance} value={balance} />
+              <input type="text" id="balance" name="balance" onChange={handleChangeBalance} value={state.balance} />
             </div>
             <div className={classes['input-group']}>
               <select name="currency" onChange={handleChangeCurrency}>
