@@ -12,7 +12,12 @@ const AddAccountForm = (props) => {
   const [currency, setCurrency] = useState('IRT');
 
   const handleChangeBalance = (e) => {
-    const formattedValue = formatNumber(e.target.value);
+    let formattedValue = formatNumber(e.target.value);
+
+    if (currency === 'IRT') {
+      formattedValue = formattedValue.split('.')[0];
+    }
+
     setBalance(formattedValue);
   };
 
@@ -26,6 +31,7 @@ const AddAccountForm = (props) => {
 
   const handleChangeCurrency = (e) => {
     setCurrency(e.target.value);
+    setBalance('');
   };
 
   const handleSubmit = (e) => {
