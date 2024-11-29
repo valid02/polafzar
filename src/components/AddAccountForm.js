@@ -5,7 +5,7 @@ import AccountCard from './AccountCard';
 import { useState } from 'react';
 import { formatNumber } from '../utils/format';
 
-const AddAccountForm = ({ onClose }) => {
+const AddAccountForm = (props) => {
   const [balance, setBalance] = useState('');
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -28,12 +28,21 @@ const AddAccountForm = ({ onClose }) => {
     setCurrency(e.target.value);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newAccount = { name, number, balance, currency, key: Math.random().toString() };
+    props.onAddAccount(newAccount);
+
+    props.onClose();
+  };
+
   return ReactDOM.createPortal(
-    <div className={classes.backdrop} onClick={onClose}>
+    <div className={classes.backdrop} onClick={props.onClose}>
       <section className={classes['form-section']} onClick={e => e.stopPropagation()}>
         <header className={classes.header}>
           <h2>افزودن حساب</h2>
-          <button className={classes['close-btn']} onClick={onClose}>
+          <button className={classes['close-btn']} onClick={props.onClose}>
             <IoIosClose />
           </button>
         </header>
@@ -42,7 +51,7 @@ const AddAccountForm = ({ onClose }) => {
           <AccountCard name={name || "******"} number={number || "-------------"} balance={balance || "000,000"} currency={currency} />
         </div>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className={classes.form}>
             <div className={classes['input-group']}>
               <label htmlFor="name">نام حساب</label>
