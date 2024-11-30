@@ -10,60 +10,97 @@ const initialState = {
   number: '',
   balance: '',
   currency: 'IRT',
+  errors: {
+    name: '',
+    balance: '',
+  },
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'SET_NAME':
-      return { ...state, name: action.payload };
-    case 'SET_NUMBER':
-      return { ...state, number: action.payload };
-    case 'SET_BALANCE':
-      return { ...state, balance: action.payload };
-    case 'SET_CURRENCY':
-      return { ...state, currency: action.payload, balance: '' }; // Reset balance when currency changes
+    case 'SET_FIELD':
+      return {
+        ...state,
+        [action.field]: action.value,
+        errors: {
+          ...state.errors,
+          [action.field]: '',
+        },
+      };
+    case 'SET_ERROR':
+      return {
+        ...state,
+        errors: {
+          ...state.errors,
+          [action.field]: action.error,
+        },
+      };
+    case 'RESET_BALANCE':
+      return {
+        ...state,
+        balance: action.balance,
+      };
+    case 'RESET':
+      return initialState;
     default:
       return state;
   }
 };
 
-const AddAccountForm = props => {
+const AddAccountForm = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const handleChangeBalance = e => {
+  const validateForm = () => {
+    let isValid = true;
+
+    if (!state.name.trim()) {
+      dispatch({ type: 'SET_ERROR', field: 'name', error: 'نام حساب نمی‌تواند خالی باشد.' });
+      isValid = false;
+    }
+
+    if (state.balance === '') {
+      dispatch({ type: 'SET_ERROR', field: 'balance', error: 'موجودی نمی‌تواند خالی باشد.' });
+      isValid = false;
+    }
+
+    return isValid;
+  };
+
+  const handleBalanceChange = (e) => {
     let formattedValue = formatNumber(e.target.value);
 
     if (state.currency === 'IRT') {
       formattedValue = formattedValue.split('.')[0];
     }
 
-    dispatch({ type: 'SET_BALANCE', payload: formattedValue });
+    dispatch({ type: 'SET_FIELD', field: 'balance', value: formattedValue });
   };
 
-  const handleChangeName = e => {
-    dispatch({ type: 'SET_NAME', payload: e.target.value });
+  const handleCurrencyChange = (e) => {
+    const newCurrency = e.target.value;
+    dispatch({ type: 'SET_FIELD', field: 'currency', value: newCurrency });
+
+    dispatch({ type: 'RESET_BALANCE', balance: '' });
   };
 
-  const handleChangeNumber = e => {
-    dispatch({ type: 'SET_NUMBER', payload: e.target.value });
-  };
-
-  const handleChangeCurrency = e => {
-    dispatch({ type: 'SET_CURRENCY', payload: e.target.value });
-  };
-
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
 
-    const newAccount = { ...state, key: Math.random().toString() };
+    const newAccount = {
+      name: state.name,
+      number: state.number || '-------------',
+      balance: state.balance,
+      currency: state.currency,
+      key: Math.random().toString(),
+    };
     props.onAddAccount(newAccount);
-
     props.onClose();
   };
 
   return ReactDOM.createPortal(
     <div className={classes.backdrop} onClick={props.onClose}>
-      <section className={classes['form-section']} onClick={e => e.stopPropagation()}>
+      <section className={classes['form-section']} onClick={(e) => e.stopPropagation()}>
         <header className={classes.header}>
           <h2>افزودن حساب</h2>
           <button className={classes['close-btn']} onClick={props.onClose}>
@@ -84,18 +121,38 @@ const AddAccountForm = props => {
           <div className={classes.form}>
             <div className={classes['input-group']}>
               <label htmlFor="name">نام حساب</label>
-              <input type="text" id="name" name="name" onChange={handleChangeName} value={state.name} />
+              <input
+                type="text"
+                id="name"
+                value={state.name}
+                onChange={(e) => dispatch({ type: 'SET_FIELD', field: 'name', value: e.target.value })}
+                className={state.errors.name ? classes['input-error'] : ''}
+              />
+              {state.errors.name && <p className={classes.error}>{state.errors.name}</p>}
             </div>
             <div className={classes['input-group']}>
-              <label htmlFor="number">شماره حساب</label>
-              <input type="text" id="number" name="number" onChange={handleChangeNumber} value={state.number} />
+              <label htmlFor="number">شماره حساب (اختیاری)</label>
+              <input
+                type="text"
+                id="number"
+                value={state.number}
+                onChange={(e) => dispatch({ type: 'SET_FIELD', field: 'number', value: e.target.value })}
+              />
             </div>
             <div className={classes['input-group']}>
               <label htmlFor="balance">موجودی</label>
-              <input type="text" id="balance" name="balance" onChange={handleChangeBalance} value={state.balance} />
+              <input
+                type="text"
+                id="balance"
+                value={state.balance}
+                onChange={handleBalanceChange}
+                className={state.errors.balance ? classes['input-error'] : ''}
+              />
+              {state.errors.balance && <p className={classes.error}>{state.errors.balance}</p>}
             </div>
             <div className={classes['input-group']}>
-              <select name="currency" onChange={handleChangeCurrency}>
+              <label>واحد پول</label>
+              <select value={state.currency} onChange={handleCurrencyChange}>
                 <option value="IRT">تومان</option>
                 <option value="USD">دلار</option>
               </select>
