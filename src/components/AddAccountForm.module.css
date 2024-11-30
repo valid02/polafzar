@@ -9,7 +9,7 @@
 
 .form-section {
   position: fixed;
-  inset: 12rem auto auto 4rem;
+  inset: 10rem auto auto 4rem;
   width: 30rem;
   z-index: 1001;
   background-color: #e1e4ff;
@@ -20,7 +20,7 @@
 .account-card {
   display: flex;
   justify-content: center;
-  margin: 2rem 0;
+  margin: 0.5rem 0;
 }
 
 .account-card div:hover {
@@ -71,7 +71,7 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .input-group {
@@ -111,6 +111,16 @@
   border-radius: 4px;
   font-size: 1.4rem;
   font-family: inherit;
+}
+
+.input-error {
+  border: 1px solid red !important;
+}
+
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin: 0;
 }
 
 .button {
