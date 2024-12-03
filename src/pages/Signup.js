@@ -1,9 +1,9 @@
 import classes from './auth.module.css';
-import buttonClasses from '../styles/buttons.module.css';
 import img from '../assets/images/money-management-financial.png';
 import { Link } from 'react-router-dom';
 import Checkbox from '../components/UI/Checkbox';
 import { FcGoogle } from 'react-icons/fc';
+import Button from '../components/UI/Button';
 
 const SignupPage = () => {
   return (
@@ -30,14 +30,12 @@ const SignupPage = () => {
                 با ثبت نام در پول‌افزار، <Link to="/terms">قوانین و مقررات</Link> آن را می‌پذیرم.
               </label>
             </div>
-            <button className={`${buttonClasses.button} ${buttonClasses.primary}`} type="submit">
-              ثبت‌نام
-            </button>
+            <Button variant="primary" type="submit">ثبت‌نام</Button>
           </form>
-          <button className={`${buttonClasses.button} ${buttonClasses.secondary}`} type="button">
+          <Button variant="secondary">
             <FcGoogle size="25px" />
             ثبت‌نام سریع با گوگل
-          </button>
+          </Button>
         </div>
         <div className={classes['img-container']}>
           <img src={img} alt="مدیریت هزینه" />

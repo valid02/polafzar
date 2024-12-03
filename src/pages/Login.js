@@ -1,9 +1,9 @@
 import classes from './auth.module.css';
-import buttonClasses from '../styles/buttons.module.css';
 import img from '../assets/images/money-management-financial.png';
 import { Link, useNavigate } from 'react-router-dom';
 import Checkbox from '../components/UI/Checkbox';
 import { FcGoogle } from 'react-icons/fc';
+import Button from '../components/UI/Button';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -41,14 +41,12 @@ const LoginPage = () => {
                 من را به خاطر بسپار
               </label>
             </div>
-            <button className={`${buttonClasses.button} ${buttonClasses.primary}`} type="submit">
-              ورود
-            </button>
+            <Button variant="primary" type="submit">ورود</Button>
           </form>
-          <button className={`${buttonClasses.button} ${buttonClasses.secondary}`} type="button">
+          <Button variant="secondary">
             <FcGoogle size="25px" />
             ورود سریع با گوگل
-          </button>
+          </Button>
         </div>
         <div className={classes['img-container']}>
           <img src={img} alt="مدیریت هزینه" />

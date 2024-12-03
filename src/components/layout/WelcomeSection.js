@@ -1,6 +1,6 @@
 import classes from './WelcomeSection.module.css';
-import buttonClasses from '../../styles/buttons.module.css';
 import banner from '../../assets/images/logo_large.png';
+import Button from '../UI/Button';
 
 const WelcomeSection = () => {
   return (
@@ -10,7 +10,7 @@ const WelcomeSection = () => {
         <p>پول های خود را به راحتی مدیریت کنید</p>
         <div>
           <input type='email' placeholder="ایمیل خود را وارد کنید" />
-          <button className={`${buttonClasses.button} ${buttonClasses.primary}`}>ثبت‌نام</button>
+          <Button variant="primary">ثبت‌نام</Button>
         </div>
       </div>
       <img src={banner} alt="پول افزار" />

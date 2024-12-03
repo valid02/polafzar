@@ -123,21 +123,6 @@
   margin: 0;
 }
 
-.button {
-  display: inline-block;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 1.4rem;
-  text-decoration: none;
-  border: none;
-  width: 10rem;
-  padding: 0.8rem 1rem;
+.submit-btn {
   margin-top: 2rem;
-  border-radius: 5px;
-  background-color: var(--color-primary);
-  color: var(--color-text-primary);
-}
-
-.button:hover {
-  filter: brightness(1.1);
 }

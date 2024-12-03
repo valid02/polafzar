@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import AccountCard from './AccountCard';
 import { useReducer } from 'react';
 import { formatNumber } from '../utils/format';
+import Button from './UI/Button';
 
 const initialState = {
   name: '',
@@ -157,9 +158,9 @@ const AddAccountForm = (props) => {
                 <option value="USD">دلار</option>
               </select>
             </div>
-            <button className={`${classes.button} ${classes.primary}`} type="submit">
+            <Button variant="primary" type="submit" className={classes['submit-btn']}>
               افزودن
-            </button>
+            </Button>
           </div>
         </form>
       </section>
