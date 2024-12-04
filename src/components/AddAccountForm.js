@@ -4,6 +4,7 @@ import { useReducer } from 'react';
 import { formatNumber } from '../utils/format';
 import Button from './UI/Button';
 import FormModal from './FormModal';
+import InputField from './UI/InputField';
 
 const initialState = {
   name: '',
@@ -111,37 +112,31 @@ const AddAccountForm = (props) => {
 
       <form onSubmit={handleSubmit}>
         <div className={classes.form}>
-          <div className={classes['input-group']}>
-            <label htmlFor="name">نام حساب</label>
-            <input
-              type="text"
-              id="name"
-              value={state.name}
-              onChange={(e) => dispatch({ type: 'SET_FIELD', field: 'name', value: e.target.value })}
-              className={state.errors.name ? classes['input-error'] : ''}
-            />
-            {state.errors.name && <p className={classes.error}>{state.errors.name}</p>}
-          </div>
-          <div className={classes['input-group']}>
-            <label htmlFor="number">شماره حساب (اختیاری)</label>
-            <input
-              type="text"
-              id="number"
-              value={state.number}
-              onChange={(e) => dispatch({ type: 'SET_FIELD', field: 'number', value: e.target.value })}
-            />
-          </div>
-          <div className={classes['input-group']}>
-            <label htmlFor="balance">موجودی</label>
-            <input
-              type="text"
-              id="balance"
-              value={state.balance}
-              onChange={handleBalanceChange}
-              className={state.errors.balance ? classes['input-error'] : ''}
-            />
-            {state.errors.balance && <p className={classes.error}>{state.errors.balance}</p>}
-          </div>
+          <InputField
+            id="name"
+            label="نام حساب"
+            type="text"
+            value={state.name}
+            onChange={(e) => dispatch({ type: 'SET_FIELD', field: 'name', value: e.target.value })}
+            error={state.errors.name}
+          />
+          <InputField
+            id="number"
+            label="شماره حساب"
+            type="text"
+            value={state.number}
+            onChange={(e) => dispatch({ type: 'SET_FIELD', field: 'number', value: e.target.value })}
+            letterSpacing={true}
+          />
+          <InputField
+            id="balance"
+            label="موجودی"
+            type="text"
+            value={state.balance}
+            onChange={handleBalanceChange}
+            error={state.errors.balance}
+            letterSpacing={true}
+          />
           <div className={classes['input-group']}>
             <label>واحد پول</label>
             <select value={state.currency} onChange={handleCurrencyChange}>
