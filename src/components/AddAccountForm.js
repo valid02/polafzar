@@ -1,10 +1,9 @@
-import { IoIosClose } from 'react-icons/io';
 import classes from './AddAccountForm.module.css';
-import ReactDOM from 'react-dom';
 import AccountCard from './AccountCard';
 import { useReducer } from 'react';
 import { formatNumber } from '../utils/format';
 import Button from './UI/Button';
+import FormModal from './FormModal';
 
 const initialState = {
   name: '',
@@ -99,73 +98,63 @@ const AddAccountForm = (props) => {
     props.onClose();
   };
 
-  return ReactDOM.createPortal(
-    <div className={classes.backdrop} onClick={props.onClose}>
-      <section className={classes['form-section']} onClick={(e) => e.stopPropagation()}>
-        <header className={classes.header}>
-          <h2>افزودن حساب</h2>
-          <button className={classes['close-btn']} onClick={props.onClose}>
-            <IoIosClose />
-          </button>
-        </header>
+  return (
+    <FormModal onClose={props.onClose} title="افزودن حساب جدید">
+      <div className={classes['account-card']}>
+        <AccountCard
+          name={state.name || '******'}
+          number={state.number || '-------------'}
+          balance={state.balance || '000,000'}
+          currency={state.currency}
+        />
+      </div>
 
-        <div className={classes['account-card']}>
-          <AccountCard
-            name={state.name || '******'}
-            number={state.number || '-------------'}
-            balance={state.balance || '000,000'}
-            currency={state.currency}
-          />
-        </div>
-
-        <form onSubmit={handleSubmit}>
-          <div className={classes.form}>
-            <div className={classes['input-group']}>
-              <label htmlFor="name">نام حساب</label>
-              <input
-                type="text"
-                id="name"
-                value={state.name}
-                onChange={(e) => dispatch({ type: 'SET_FIELD', field: 'name', value: e.target.value })}
-                className={state.errors.name ? classes['input-error'] : ''}
-              />
-              {state.errors.name && <p className={classes.error}>{state.errors.name}</p>}
-            </div>
-            <div className={classes['input-group']}>
-              <label htmlFor="number">شماره حساب (اختیاری)</label>
-              <input
-                type="text"
-                id="number"
-                value={state.number}
-                onChange={(e) => dispatch({ type: 'SET_FIELD', field: 'number', value: e.target.value })}
-              />
-            </div>
-            <div className={classes['input-group']}>
-              <label htmlFor="balance">موجودی</label>
-              <input
-                type="text"
-                id="balance"
-                value={state.balance}
-                onChange={handleBalanceChange}
-                className={state.errors.balance ? classes['input-error'] : ''}
-              />
-              {state.errors.balance && <p className={classes.error}>{state.errors.balance}</p>}
-            </div>
-            <div className={classes['input-group']}>
-              <label>واحد پول</label>
-              <select value={state.currency} onChange={handleCurrencyChange}>
-                <option value="IRT">تومان</option>
-                <option value="USD">دلار</option>
-              </select>
-            </div>
-            <Button variant="primary" type="submit" className={classes['submit-btn']}>
-              افزودن
-            </Button>
+      <form onSubmit={handleSubmit}>
+        <div className={classes.form}>
+          <div className={classes['input-group']}>
+            <label htmlFor="name">نام حساب</label>
+            <input
+              type="text"
+              id="name"
+              value={state.name}
+              onChange={(e) => dispatch({ type: 'SET_FIELD', field: 'name', value: e.target.value })}
+              className={state.errors.name ? classes['input-error'] : ''}
+            />
+            {state.errors.name && <p className={classes.error}>{state.errors.name}</p>}
           </div>
-        </form>
-      </section>
-    </div>,
-    document.getElementById('portal-root')
+          <div className={classes['input-group']}>
+            <label htmlFor="number">شماره حساب (اختیاری)</label>
+            <input
+              type="text"
+              id="number"
+              value={state.number}
+              onChange={(e) => dispatch({ type: 'SET_FIELD', field: 'number', value: e.target.value })}
+            />
+          </div>
+          <div className={classes['input-group']}>
+            <label htmlFor="balance">موجودی</label>
+            <input
+              type="text"
+              id="balance"
+              value={state.balance}
+              onChange={handleBalanceChange}
+              className={state.errors.balance ? classes['input-error'] : ''}
+            />
+            {state.errors.balance && <p className={classes.error}>{state.errors.balance}</p>}
+          </div>
+          <div className={classes['input-group']}>
+            <label>واحد پول</label>
+            <select value={state.currency} onChange={handleCurrencyChange}>
+              <option value="IRT">تومان</option>
+              <option value="USD">دلار</option>
+            </select>
+          </div>
+          <Button variant="primary" type="submit" className={classes['submit-btn']}>
+            افزودن
+          </Button>
+        </div>
+      </form>
+    </FormModal>
   );
 };
 
