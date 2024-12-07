@@ -5,6 +5,7 @@ import { formatNumber } from '../utils/format';
 import Button from './UI/Button';
 import FormModal from './FormModal';
 import InputField from './UI/InputField';
+import CurrencySelector from './UI/CurrencySelector';
 
 const initialState = {
   name: '',
@@ -93,7 +94,7 @@ const AddAccountForm = (props) => {
       number: state.number || '-------------',
       balance: state.balance,
       currency: state.currency,
-      key: Math.random().toString(),
+      id: Math.random().toString(),
     };
     props.onAddAccount(newAccount);
     props.onClose();
@@ -137,13 +138,9 @@ const AddAccountForm = (props) => {
             error={state.errors.balance}
             letterSpacing={true}
           />
-          <div className={classes['input-group']}>
-            <label>واحد پول</label>
-            <select value={state.currency} onChange={handleCurrencyChange}>
-              <option value="IRT">تومان</option>
-              <option value="USD">دلار</option>
-            </select>
-          </div>
+          
+          <CurrencySelector value={state.currency} onChange={handleCurrencyChange} />
+
           <Button variant="primary" type="submit" className={classes['submit-btn']}>
             افزودن
           </Button>
