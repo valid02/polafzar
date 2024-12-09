@@ -1,12 +1,11 @@
 import ReactDOM from 'react-dom';
-import classes from './FormModal.module.css';
+import classes from './ContentModal.module.css';
 import { IoIosClose } from 'react-icons/io';
 
-const FormModal = ({ onClose, children, title }) => {
+const ContentModal = ({ onClose, children, title, inset }) => {
   return ReactDOM.createPortal (
-    <>
-      <div className={classes.backdrop} onClick={onClose} />
-      <section className={classes.content}>
+    <div className={classes.backdrop} onClick={onClose}>
+      <section className={classes.content} style={{ inset: inset }} onClick={(e) => e.stopPropagation()}>
         <header className={classes.header}>
           <h2>{title}</h2>
           <button className={classes['close-btn']} onClick={onClose}>
@@ -16,9 +15,8 @@ const FormModal = ({ onClose, children, title }) => {
 
         {children}
       </section>
-
-    </>, document.getElementById('portal-root')
+    </div>, document.getElementById('portal-root')
   );
 }
  
-export default FormModal;
+export default ContentModal;

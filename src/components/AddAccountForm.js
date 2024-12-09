@@ -3,7 +3,7 @@ import AccountCard from './AccountCard';
 import { useReducer } from 'react';
 import { formatNumber } from '../utils/format';
 import Button from './UI/Button';
-import FormModal from './FormModal';
+import ContentModal from './ContentModal';
 import InputField from './UI/InputField';
 import CurrencySelector from './UI/CurrencySelector';
 
@@ -101,7 +101,7 @@ const AddAccountForm = (props) => {
   };
 
   return (
-    <FormModal onClose={props.onClose} title="افزودن حساب جدید">
+    <ContentModal onClose={props.onClose} title="افزودن حساب جدید">
       <div className={classes['account-card']}>
         <AccountCard
           name={state.name || '******'}
@@ -146,7 +146,7 @@ const AddAccountForm = (props) => {
           </Button>
         </div>
       </form>
-    </FormModal>
+    </ContentModal>
   );
 };
 
