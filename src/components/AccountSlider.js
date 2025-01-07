@@ -31,7 +31,7 @@ const AccountSlider = ({ accounts }) => {
       }}
     >
       {accounts.map((account) => (
-        <SwiperSlide key={account.key}>
+        <SwiperSlide key={account.id}>
           <AccountCard
             name={account.name}
             number={account.number}
