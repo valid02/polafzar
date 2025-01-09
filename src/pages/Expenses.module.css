@@ -1,0 +1,15 @@
+.expenses {
+  width: 100%;
+  margin: 10rem 8rem 0 2rem;
+  direction: ltr;
+}
+
+.add-expense-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-expense-btn svg {
+  margin-left: 1rem;
+}

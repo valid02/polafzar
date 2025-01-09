@@ -1,0 +1,8 @@
+.form {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  direction: rtl;
+  text-align: right;
+}
