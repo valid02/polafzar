@@ -2,10 +2,10 @@ import ReactDOM from 'react-dom';
 import classes from './ContentModal.module.css';
 import { IoIosClose } from 'react-icons/io';
 
-const ContentModal = ({ onClose, children, title, inset }) => {
-  return ReactDOM.createPortal (
+const ContentModal = ({ onClose, children, title, inset = '10rem auto auto 4rem', disableScroll = false  }) => {
+  return ReactDOM.createPortal(
     <div className={classes.backdrop} onClick={onClose}>
-      <section className={classes.content} style={{ inset: inset }} onClick={(e) => e.stopPropagation()}>
+      <section className={classes.section} style={{ inset }} onClick={e => e.stopPropagation()}>
         <header className={classes.header}>
           <h2>{title}</h2>
           <button className={classes['close-btn']} onClick={onClose}>
@@ -13,10 +13,13 @@ const ContentModal = ({ onClose, children, title, inset }) => {
           </button>
         </header>
 
-        {children}
+        <div className={classes.content} style={{ overflowY: disableScroll ? 'hidden' : 'auto' }}>
+          {children}
+        </div>
       </section>
-    </div>, document.getElementById('portal-root')
+    </div>,
+    document.getElementById('portal-root')
   );
-}
- 
+};
+
 export default ContentModal;
