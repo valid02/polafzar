@@ -1,0 +1,32 @@
+.category-action-btn {
+  direction: rtl;
+  margin: 0.5rem 1rem;
+}
+
+.category-action-btn button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #7570c6;
+  color: #ffffff;
+  border: none;
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.category-action-btn button:hover {
+  background-color: #5d5a9e;
+}
+
+.category-action-btn button:disabled {
+  cursor: not-allowed;
+}
+
+.category-action-btn button svg {
+  margin-left: 8px;
+}
