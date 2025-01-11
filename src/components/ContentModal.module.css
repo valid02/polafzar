@@ -55,10 +55,7 @@
   text-align: center;
 }
 
-.close-btn {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+.icon-btn {
   border: none;
   cursor: pointer;
   width: 3rem;
@@ -74,6 +71,19 @@
   justify-content: center;
 }
 
-.close-btn:hover {
+.icon-btn:hover {
   background-color: #091e4224;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.back-btn {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 1.8rem;
 }
