@@ -1,0 +1,54 @@
+.category-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+  padding: 0.6rem;
+  font-size: 1.4rem;
+  background-color: #a7b8b8;
+  border-radius: 5px;
+  direction: rtl;
+  text-align: right;
+}
+
+.category-item:hover{
+  background-color: #7f8b8b;
+}
+
+.category-item span {
+  display: flex;
+  align-items: center;
+}
+
+.category-item span svg {
+  margin-left: 0.5rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actions button {
+  cursor: pointer;
+  background-color: inherit;
+  border: none;
+  width: 2.8rem;
+  height: 2.8rem;
+}
+
+.actions button {
+  font-size: 1.5rem;
+}
+
+.actions button:hover {
+  font-size: 1.8rem;
+}
+
+.edit-btn svg {
+  color: #0d4d1b;
+}
+
+.delete-btn svg {
+  color: #962222;
+  margin-left: 0.5rem;
+}
