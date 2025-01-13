@@ -1,0 +1,45 @@
+.input {
+  direction: rtl;
+  text-align: right;
+  margin: 1rem;
+}
+
+.input label {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  font-weight: normal;
+}
+
+.input input {
+  padding: 0.6rem;
+  border-radius: 0.2rem;
+  font-size: 1.6rem;
+  border: 2px solid #ccc;
+}
+
+.input input:focus {
+  outline: none;
+  border: 2px solid #1b8dda;
+}
+
+.category-length {
+  display: block;
+  direction: rtl;
+  text-align: right;
+  margin: 0 1rem 2rem 0;
+  font-size: 1.4rem;
+}
+
+.form {
+  margin-bottom: 2.5rem;
+}
+
+.cancel-btn button {
+  background-color: #ca562f;
+  color: #f3f3f3;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-btn button:hover {
+  background-color: #a03917;
+}
