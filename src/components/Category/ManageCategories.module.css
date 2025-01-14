@@ -1,0 +1,13 @@
+.category-label {
+  direction: rtl;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 0.5rem 2rem;
+}
+
+.no-results-massage {
+  font-size: 1.2rem;
+  color: var(--color-text-secondary, #888);
+  text-align: center;
+  margin-top: 2rem;
+}
