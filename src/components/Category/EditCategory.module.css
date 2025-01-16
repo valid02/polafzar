@@ -1,0 +1,59 @@
+.editCategoryContainer {
+  direction: rtl;
+  text-align: right;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.editCategoryInput label {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  font-weight: normal;
+}
+
+.editCategoryInput input {
+  padding: 0.6rem;
+  border-radius: 0.2rem;
+  font-size: 1.6rem;
+  border: 2px solid #ccc;
+}
+
+.editCategoryInput input:focus {
+  outline: none;
+  border: 2px solid #1b8dda;
+}
+
+.editCategoryActions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.editCategoryActions button {
+  padding: 1rem;
+  width: 50%;
+  font-size: 1.4rem;
+  font-family: inherit;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.editCategoryActions button:hover {
+  opacity: 0.9;
+}
+
+.editCategoryActions button:active {
+  transform: scale(0.98);
+}
+
+.editCategoryActions button:last-child {
+  background-color: #f44336;
+  color: white;
+}
+
+.editCategoryActions button:first-child {
+  background-color: #4caf50;
+  color: white;
+}
