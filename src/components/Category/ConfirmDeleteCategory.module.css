@@ -1,0 +1,38 @@
+.confirmDeleteContainer {
+  direction: rtl;
+  text-align: right;
+  padding: 20px;
+}
+
+.confirmDeleteContainer p {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.confirmDeleteButtons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.confirmDeleteButton {
+  font-family: inherit;
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  width: 50%;
+}
+
+.confirmDeleteButton.confirm {
+  background-color: red;
+  color: white;
+}
+
+.confirmDeleteButton.cancel {
+  background-color: gray;
+  color: white;
+}
